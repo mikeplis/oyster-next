@@ -1,11 +1,15 @@
 import Link from 'next/link';
+import { FormattedMessage } from 'react-intl';
+import withIntl from './withIntl';
 
-export default () =>
+const Header = () =>
     <div>
         <ul>
             <li>
                 <Link prefetch href="/">
-                    <a>Home</a>
+                    <a>
+                        <FormattedMessage id="header.home" defaultMessage="Home" />
+                    </a>
                 </Link>
             </li>
             <li>
@@ -30,3 +34,5 @@ export default () =>
             </li>
         </ul>
     </div>;
+
+export default withIntl(Header);
