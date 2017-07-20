@@ -8,28 +8,51 @@ const Header = () =>
             <li>
                 <Link prefetch href="/">
                     <a>
-                        <FormattedMessage id="header.home" defaultMessage="Home" />
+                        <FormattedMessage
+                            id="header.home"
+                            defaultMessage="Home"
+                        />
                     </a>
                 </Link>
             </li>
             <li>
                 <Link prefetch href="/destinations">
-                    <a>Destinations</a>
+                    <a>
+                        <FormattedMessage
+                            id="header.destinations"
+                            defaultMessage="Destinations"
+                        />
+                    </a>
                 </Link>
             </li>
             <li>
                 <Link prefetch href="/collections">
-                    <a>Collections</a>
+                    <a>
+                        <FormattedMessage
+                            id="header.collections"
+                            defaultMessage="Collections"
+                        />
+                    </a>
                 </Link>
             </li>
             <li>
                 <Link prefetch href="/articles">
-                    <a>Stories</a>
+                    <a>
+                        <FormattedMessage
+                            id="header.stories"
+                            defaultMessage="Stories"
+                        />
+                    </a>
                 </Link>
             </li>
             <li>
                 <Link prefetch href="/photo-fakeouts">
-                    <a>Photo Fakeouts</a>
+                    <a>
+                        <FormattedMessage
+                            id="header.photoFakeouts"
+                            defaultMessage="Photo Fakeouts"
+                        />
+                    </a>
                 </Link>
             </li>
         </ul>
