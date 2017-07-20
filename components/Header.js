@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
-import withIntl from './withIntl';
+import withIntl from '../lib/withIntl';
 
 const Header = () =>
     <div>

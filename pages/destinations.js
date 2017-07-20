@@ -1,7 +1,8 @@
 import { FormattedMessage } from 'react-intl';
+import { compose } from 'react-apollo';
 
 import Layout from '../components/Layout';
-import withIntl from '../components/withIntl';
+import withIntl from '../lib/withIntl';
 
 const Destinations = () =>
     <Layout>
@@ -13,4 +14,4 @@ const Destinations = () =>
         </h1>
     </Layout>;
 
-export default withIntl(Destinations);
+export default compose(withIntl)(Destinations);

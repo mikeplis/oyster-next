@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "next": "^3.0.1-beta.17",
     "react": "^15.6.1",
+    "react-apollo": "^1.4.6",
     "react-dom": "^15.6.1",
     "react-intl": "^2.3.0"
   }
