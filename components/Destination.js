@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { gql, graphql } from 'react-apollo';
 
+// NOTE: this works because the url query param is `id`
+// http://dev.apollodata.com/react/queries.html#options-from-props
 const destination = gql`
     query getLocation($id: ID!) {
         Location(id: $id) {
@@ -18,7 +20,6 @@ const Destination = ({ data: { Location } }) => {
     if (!Location) {
         return null;
     }
-    console.log(Location);
     return (
         <div>
             <h1>
@@ -28,7 +29,11 @@ const Destination = ({ data: { Location } }) => {
                 {Location.hotels.map(({ id, name }) => {
                     return (
                         <li key={id}>
-                            {name}
+                            <Link href={`/hotel?id=${id}`}>
+                                <a>
+                                    {name}
+                                </a>
+                            </Link>
                         </li>
                     );
                 })}
