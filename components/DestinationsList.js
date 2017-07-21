@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { gql, graphql } from 'react-apollo';
 
 const allDestinations = gql`
@@ -18,7 +19,11 @@ const DestinationList = ({ data: { allLocations } }) => {
             {allLocations.map(({ id, name }) => {
                 return (
                     <li key={id}>
-                        {name}
+                        <Link href={`/destinations?id=${id}`}>
+                            <a>
+                                {name}
+                            </a>
+                        </Link>
                     </li>
                 );
             })}
