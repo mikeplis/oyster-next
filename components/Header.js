@@ -39,8 +39,8 @@ const Header = () =>
                 <Link prefetch href="/articles">
                     <a>
                         <FormattedMessage
-                            id="header.stories"
-                            defaultMessage="Stories"
+                            id="header.articles"
+                            defaultMessage="Articles"
                         />
                     </a>
                 </Link>
