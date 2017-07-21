@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { gql, graphql } from 'react-apollo';
 
-// NOTE: this works because the url query param is `id`
+// NOTE: this works because the `id` is passed in as a prop from the destination page component
 // http://dev.apollodata.com/react/queries.html#options-from-props
-const destination = gql`
+const getDestination = gql`
     query getLocation($id: ID!) {
         Location(id: $id) {
             id
@@ -41,4 +41,4 @@ const Destination = ({ data: { Location } }) => {
         </div>
     );
 };
-export default graphql(destination)(Destination);
+export default graphql(getDestination)(Destination);
