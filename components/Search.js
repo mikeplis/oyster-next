@@ -5,6 +5,7 @@ import {
     Highlight,
     Index
 } from 'react-instantsearch/dom';
+import Link from 'next/link';
 
 const HotelHit = ({ hit }) =>
     <div>
@@ -16,15 +17,22 @@ const HotelHit = ({ hit }) =>
         </small>
     </div>;
 
-const ArticleHit = ({ hit }) =>
-    <div>
-        <p>
-            <Highlight attributeName="title" hit={hit} />
-        </p>
-        <small>
-            <Highlight attributeName="deck" hit={hit} />
-        </small>
-    </div>;
+const ArticleHit = ({ hit }) => {
+    return (
+        <div>
+            <p>
+                <Link href={`/article?id=${hit.id}`}>
+                    <a>
+                        <Highlight attributeName="title" hit={hit} />
+                    </a>
+                </Link>
+            </p>
+            <small>
+                <Highlight attributeName="deck" hit={hit} />
+            </small>
+        </div>
+    );
+};
 
 const TagHit = ({ hit }) =>
     <div>
