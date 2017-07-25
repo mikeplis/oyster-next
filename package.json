@@ -1,24 +1,26 @@
 {
-  "name": "oyster-next",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "next": "^3.0.1-beta.17",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-apollo": "^1.4.6",
-    "react-dom": "^15.6.1",
-    "react-intl": "^2.3.0",
-    "react-markdown": "^2.5.0"
-  }
+    "name": "oyster-next",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "isomorphic-fetch": "^2.2.1",
+        "next": "^3.0.1-beta.17",
+        "prop-types": "^15.5.10",
+        "react": "^15.6.1",
+        "react-apollo": "^1.4.6",
+        "react-dom": "^15.6.1",
+        "react-instantsearch": "^4.0.9",
+        "react-instantsearch-theme-algolia": "^4.1.0-beta.3",
+        "react-intl": "^2.3.0",
+        "react-markdown": "^2.5.0"
+    }
 }
