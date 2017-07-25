@@ -19,7 +19,7 @@ const DestinationList = ({ data: { allLocations } }) => {
             {allLocations.map(({ id, name }) => {
                 return (
                     <li key={id}>
-                        <Link href={`/destination?id=${id}`}>
+                        <Link prefetch href={`/destination?id=${id}`}>
                             <a>
                                 {name}
                             </a>

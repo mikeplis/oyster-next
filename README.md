@@ -14,3 +14,12 @@ Ideas
     }
   }
 }`
+
+# Query to retrieve all articles that contain a certain string
+`query {
+  allArticles(filter: {content_contains: "Lorem"}) {
+    id
+    title
+  }
+}
+`

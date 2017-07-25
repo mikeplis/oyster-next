@@ -45,16 +45,6 @@ const Header = () =>
                     </a>
                 </Link>
             </li>
-            <li>
-                <Link prefetch href="/photo-fakeouts">
-                    <a>
-                        <FormattedMessage
-                            id="header.photoFakeouts"
-                            defaultMessage="Photo Fakeouts"
-                        />
-                    </a>
-                </Link>
-            </li>
         </ul>
     </div>;
 
