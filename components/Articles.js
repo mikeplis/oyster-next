@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { gql, graphql } from 'react-apollo';
-import ReactMarkdown from 'react-markdown';
 
 const allArticles = gql`
     query {
@@ -28,7 +27,9 @@ const Articles = ({ data: { allArticles } }) => {
                                 </h2>
                             </a>
                         </Link>
-                        <ReactMarkdown source={deck} />
+                        <p>
+                            {deck}
+                        </p>
                         <hr />
                     </div>
                 );

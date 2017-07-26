@@ -3,14 +3,20 @@ import {
     Hits,
     SearchBox,
     Highlight,
-    Index
+    Index,
+    Configure
 } from 'react-instantsearch/dom';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const HotelHit = ({ hit }) =>
     <div>
         <p>
-            <Highlight attributeName="name" hit={hit} />
+            <Link href={`/hotel?id=${hit.id}`}>
+                <a>
+                    <Highlight attributeName="name" hit={hit} />
+                </a>
+            </Link>
         </p>
         <small>
             <Highlight attributeName="simpleReview" hit={hit} />
@@ -37,40 +43,57 @@ const ArticleHit = ({ hit }) => {
 const TagHit = ({ hit }) =>
     <div>
         <p>
-            <Highlight attributeName="key" hit={hit} />
+            <Link href={`/collection?id=${hit.id}`}>
+                <a>
+                    <Highlight attributeName="key" hit={hit} />
+                </a>
+            </Link>
         </p>
     </div>;
 
-const LocationHit = ({ hit }) =>
+const DestinationHit = ({ hit }) =>
     <div>
         <p>
-            <Highlight attributeName="name" hit={hit} />
+            <Link href={`/destination?id=${hit.id}`}>
+                <a>
+                    <Highlight attributeName="name" hit={hit} />
+                </a>
+            </Link>
         </p>
     </div>;
 
 export default () =>
-    <InstantSearch
-        appId="51CSD6MVKP"
-        apiKey="6af2850beac512e1a8f73f54c9eaa991"
-        indexName="Hotels"
-    >
-        <div className="search-container">
-            <SearchBox />
-            <h3>Hotels:</h3>
-            <Index indexName="Hotels">
-                <Hits hitComponent={HotelHit} />
-            </Index>
-            <h3>Articles:</h3>
-            <Index indexName="Articles">
-                <Hits hitComponent={ArticleHit} />
-            </Index>
-            <h3>Tags:</h3>
-            <Index indexName="Tags">
-                <Hits hitComponent={TagHit} />
-            </Index>
-            <h3>Locations:</h3>
-            <Index indexName="Locations">
-                <Hits hitComponent={LocationHit} />
-            </Index>
-        </div>
-    </InstantSearch>;
+    <div>
+        <Head>
+            <link
+                rel="stylesheet"
+                href="https://unpkg.com/react-instantsearch-theme-algolia@4.0.0/style.min.css"
+            />
+        </Head>
+        <InstantSearch
+            appId="51CSD6MVKP"
+            apiKey="6af2850beac512e1a8f73f54c9eaa991"
+            indexName="Hotels"
+        >
+            <div className="search-container">
+                <SearchBox />
+                <Configure hitsPerPage={3} />
+                <h3>Hotels:</h3>
+                <Index indexName="Hotels">
+                    <Hits hitComponent={HotelHit} />
+                </Index>
+                <h3>Articles:</h3>
+                <Index indexName="Articles">
+                    <Hits hitComponent={ArticleHit} />
+                </Index>
+                <h3>Tags:</h3>
+                <Index indexName="Tags">
+                    <Hits hitComponent={TagHit} />
+                </Index>
+                <h3>Destinations:</h3>
+                <Index indexName="Locations">
+                    <Hits hitComponent={DestinationHit} />
+                </Index>
+            </div>
+        </InstantSearch>
+    </div>;

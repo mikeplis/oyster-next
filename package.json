@@ -20,7 +20,6 @@
         "react-day-picker": "^6.1.0",
         "react-dom": "^15.6.1",
         "react-instantsearch": "^4.0.9",
-        "react-instantsearch-theme-algolia": "^4.1.0-beta.3",
         "react-intl": "^2.3.0",
         "react-markdown": "^2.5.0"
     }
