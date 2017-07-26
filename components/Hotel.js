@@ -7,6 +7,7 @@ const getHotel = gql`
             id
             name
             simpleReview
+            pearlRating
             location {
                 id
                 name
@@ -27,6 +28,9 @@ const Hotel = ({ data: { Hotel } }) => {
             <h2>
                 {Hotel.location.name}
             </h2>
+            <p>
+                {Hotel.pearlRating} / 5
+            </p>
             <p>
                 {Hotel.simpleReview}
             </p>
