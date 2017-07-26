@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "next",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "loc": "git diff -w --stat `git hash-object -t tree /dev/null` | cat"
     },
     "keywords": [],
     "author": "",
