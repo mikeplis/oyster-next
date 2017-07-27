@@ -1,27 +1,45 @@
 import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
+import { observer } from 'mobx-react';
 
+@observer
 export default class DatePicker extends React.Component {
     state = {
-        from: null,
-        to: null
+        show: false
     };
 
     handleDayClick = day => {
-        const range = DateUtils.addDayToRange(day, this.state);
-        this.setState(range);
+        const { store } = this.props;
+        const range = DateUtils.addDayToRange(day, {
+            from: store.from,
+            to: store.to
+        });
+        store.from = range.from;
+        store.to = range.to;
+    };
+
+    handleToggleDatePicker = () => {
+        this.setState({ show: !this.state.show });
     };
 
     render() {
-        const { from, to } = this.state;
+        const { show } = this.state;
+        const { store } = this.props;
         return (
             <div>
-                <DayPicker
-                    numberOfMonths={2}
-                    fixedWeeks
-                    onDayClick={this.handleDayClick}
-                    selectedDays={[from, { from, to }]}
-                />
+                <button onClick={this.handleToggleDatePicker}>
+                    Pick Dates
+                </button>
+                {show &&
+                    <DayPicker
+                        numberOfMonths={2}
+                        fixedWeeks
+                        onDayClick={this.handleDayClick}
+                        selectedDays={[
+                            store.from,
+                            { from: store.from, to: store.to }
+                        ]}
+                    />}
                 <style jsx global>{`
                     /* DayPicker styles */
 
