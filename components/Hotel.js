@@ -22,7 +22,7 @@ const getHotel = gql`
     }
 `;
 
-const Hotel = ({ data: { Hotel } }) => {
+const Hotel = ({ data: { Hotel }, id }) => {
     if (!Hotel) {
         return null;
     }
@@ -31,6 +31,18 @@ const Hotel = ({ data: { Hotel } }) => {
             <h1>
                 {Hotel.name}
             </h1>
+            <ul>
+                <li>
+                    <Link href={{ pathname: '/hotel', query: { id } }}>
+                        <a>Overview</a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href={{ pathname: '/hotel/photos', query: { id } }}>
+                        <a>Photos</a>
+                    </Link>
+                </li>
+            </ul>
             {Hotel.featuredImage && <Image url={Hotel.featuredImage.url} />}
             <h2>
                 {Hotel.location.name}
