@@ -3,6 +3,8 @@ import { gql, graphql } from 'react-apollo';
 import ReactMarkdown from 'react-markdown';
 import { FormattedDate } from 'react-intl';
 
+import Image from './Image';
+
 // NOTE: this works because the `id` is passed in as a prop from the destination page component
 // http://dev.apollodata.com/react/queries.html#options-from-props
 const getArticle = gql`
@@ -12,6 +14,10 @@ const getArticle = gql`
             title
             content
             createdAt
+            featuredImage {
+                id
+                url
+            }
         }
     }
 `;
@@ -25,7 +31,10 @@ const Article = ({ data: { Article } }) => {
             <h1>
                 {Article.title}
             </h1>
-            <FormattedDate value={new Date(Article.createdAt)} />
+            <div>
+                <FormattedDate value={new Date(Article.createdAt)} />
+            </div>
+            <Image width={600} height={400} url={Article.featuredImage.url} />
             <ReactMarkdown source={Article.content} />
         </div>
     );

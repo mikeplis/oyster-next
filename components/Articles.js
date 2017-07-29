@@ -1,12 +1,18 @@
 import Link from 'next/link';
 import { gql, graphql } from 'react-apollo';
 
+import Image from './Image';
+
 const allArticles = gql`
     query {
         allArticles {
             id
             title
             deck
+            featuredImage {
+                id
+                url
+            }
         }
     }
 `;
@@ -17,7 +23,7 @@ const Articles = ({ data: { allArticles } }) => {
     }
     return (
         <div>
-            {allArticles.map(({ id, title, deck }) => {
+            {allArticles.map(({ id, title, deck, featuredImage }) => {
                 return (
                     <div key={id}>
                         <Link href={`/article?id=${id}`}>
@@ -27,6 +33,8 @@ const Articles = ({ data: { allArticles } }) => {
                                 </h2>
                             </a>
                         </Link>
+                        {featuredImage &&
+                            <Image height={100} url={featuredImage.url} />}
                         <p>
                             {deck}
                         </p>
