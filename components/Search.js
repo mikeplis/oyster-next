@@ -65,6 +65,7 @@ const DestinationHit = ({ hit }) =>
 export default () =>
     <div>
         <Head>
+            {/* TODO: figure out how to add this CSS to project directly: https://community.algolia.com/react-instantsearch/guide/Styling_widgets.html#loading-the-theme */}
             <link
                 rel="stylesheet"
                 href="https://unpkg.com/react-instantsearch-theme-algolia@4.0.0/style.min.css"
