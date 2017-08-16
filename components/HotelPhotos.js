@@ -12,11 +12,14 @@ const getHotel = gql`
             name
             albums {
                 id
-                photos {
+                photos(first: 1) {
                     id
                     url
                 }
                 title
+                _photosMeta {
+                    count
+                }
             }
         }
     }
@@ -44,14 +47,19 @@ const Hotel = ({ data: { Hotel }, id }) => {
                 </li>
             </ul>
             <h2>Photos</h2>
-            <ul>
+            <div>
                 {Hotel.albums &&
-                    Hotel.albums.map(({ id, photos, title }) =>
-                        <li key={id}>
-                            {title}
-                        </li>
+                    Hotel.albums.map(({ id, photos, title, _photosMeta }) =>
+                        <div key={id}>
+                            <div>
+                                {photos && photos[0] && <Image width={200} url={photos[0].url} />}
+                            </div>
+                            <div>
+                                {title} ({_photosMeta.count})
+                            </div>
+                        </div>
                     )}
-            </ul>
+            </div>
         </div>
     );
 };
